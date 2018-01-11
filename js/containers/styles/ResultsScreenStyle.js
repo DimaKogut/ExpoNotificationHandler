@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
   ...globalStyles,
   container: {
     flex: 1,
-    margin: 30,
+    margin: 20,
+    marginLeft: 15,
+    marginRight: 15,
     padding: 20,
     justifyContent: 'space-between',
   },
@@ -26,14 +28,15 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1.5
+    backgroundColor: '#1072B6'
   },
   buttonText: {
-    fontSize: 17
+    fontSize: 17,
+    color: 'white'
   },
   scoreText: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: '600'
   },
   sighItem: {
@@ -49,6 +52,16 @@ const styles = StyleSheet.create({
   scrollBlock: {
     marginTop: 20,
     marginBottom: 20
+  },
+  sighItemIconRed: {
+    color: 'red',
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  sighItemIconGreen: {
+    color: '#00b700',
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 
 

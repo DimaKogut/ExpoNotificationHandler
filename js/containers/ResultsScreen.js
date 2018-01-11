@@ -73,9 +73,9 @@ class ResultsScreen extends PureComponent {
           <View style={styles.sighItem}>
             {
               item.answer ?
-                <Text style={styles.sighItemIcon}>+</Text>
+                <Text style={styles.sighItemIconGreen}>+</Text>
               :
-               <Text style={styles.sighItemIcon}>-</Text>
+               <Text style={styles.sighItemIconRed}>-</Text>
             }
           </View>
           <View style={styles.question}>

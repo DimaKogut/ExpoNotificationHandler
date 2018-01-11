@@ -84,7 +84,10 @@ class QuizScreen extends PureComponent {
 
       return(
         <View key={index} style={styles.questionBlock}>
+        <View>
           <Text style={styles.category}>{item.category}</Text>
+          <Text style={[styles.counter, styles.globalStyles]}>{index + 1} / 10</Text>
+          </View>
           <View>
 
             <View style={styles.questionBox}>
@@ -106,14 +109,14 @@ class QuizScreen extends PureComponent {
             </View>
 
           </View>
-          <Text style={[styles.counter, styles.globalStyles]}>{index + 1} / 10</Text>
+
         </View>
       )
     })
   }
 
   _setAnswer(answer) {
-    console.log('_setAnswer')
+
     const { setAnswer } = this.props;
     // const { questionIndex, questionsList } = storage;
 
@@ -121,7 +124,7 @@ class QuizScreen extends PureComponent {
     if(this.currentIndex < this.questionsList.length - 1){
       setAnswer({answer, questionIndex: this.currentIndex});
       this._scrollTo()
-    } else Actions.results({type: Actions.RESET})
+    } else Actions.results({type: ActionConst.RESET })
     // if(questionIndex < questionsList.length) this._scrollTo(questionIndex)
 
   }

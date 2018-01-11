@@ -16,11 +16,12 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    fontWeight: 'bold',
+    marginTop: 20,
     fontSize: 17
   },
   mainMessage: {
-    fontSize: 24
+    fontSize: 17,
+    fontWeight: 'bold',
   },
   beginButton: {
     flex: null,
@@ -28,10 +29,11 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1.5
+    backgroundColor: '#1072B6'
   },
   buttonText: {
-    fontSize: 17
+    fontSize: 17,
+    color: 'white'
   }
 
 

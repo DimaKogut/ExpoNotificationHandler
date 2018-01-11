@@ -20,10 +20,13 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 5,
     margin: 20,
-    padding: 20
+    padding: 20,
+    paddingTop: 40,
+    paddingBottom: 40,
   },
   questionTextStyle: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 20
   },
   category: {
     textAlign: 'center',
@@ -31,7 +34,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   counter: {
-    textAlign: 'center'
+    textAlign: 'center',
+    marginTop: 10
   },
   buttonsBlock: {
     flexDirection: 'row', marginLeft: 20, marginRight: 20
@@ -44,7 +48,7 @@ const styles = StyleSheet.create({
     borderRadius: 20
   },
   trueButton: {
-    backgroundColor: 'green',
+    backgroundColor: '#00b700',
     marginRight: 10,
   },
   falseButton: {
