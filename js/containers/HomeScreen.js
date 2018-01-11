@@ -30,7 +30,7 @@ class HomeScreen extends PureComponent {
   }
 
   componentDidUpdate() {
-    console.log(this.props)
+
     const { quizStarted } = this.props;
 
     if(quizStarted) Actions.quiz({ type: Actions.RESET })

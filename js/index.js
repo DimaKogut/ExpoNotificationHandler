@@ -7,7 +7,6 @@ import appStore from './store/appStore';
 import HomeScreen from './containers/HomeScreen';
 import QuizScreen from './containers/QuizScreen';
 import ResultsScreen from './containers/ResultsScreen';
-// import LoginScreen from './containers/LoginScreen';
 
 
 const RouterWithRedux = connect()(Router);

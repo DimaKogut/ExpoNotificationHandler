@@ -28,7 +28,6 @@ class QuizScreen extends PureComponent {
   constructor(props) {
     super(props);
 
-    // this.currentIndex = this.props.storage.questionIndex
 
     this._renderContent = this._renderContent.bind(this)
     this._scrollTo = this._scrollTo.bind(this)
@@ -44,23 +43,17 @@ class QuizScreen extends PureComponent {
   }
 
   _onMomentumScrollEnd(e, state, context) {
-    console.log(state.index)
     this.currentIndex = state.index;
   }
 
 
   _scrollTo() {
-    console.log(this.currentIndex)
-    // this.currentIndex =+ 1
     const index = this.currentIndex - this.swiper.state.index;
 
     this.swiper.scrollBy(index + 1);
   }
 
   render() {
-    // const { questionIndex } = this.props.storage;
-    console.log('render')
-    console.log(this.props)
     return (
       <View style={{flex: 1}}>
         <Swiper style={styles.swiper}
@@ -118,14 +111,12 @@ class QuizScreen extends PureComponent {
   _setAnswer(answer) {
 
     const { setAnswer } = this.props;
-    // const { questionIndex, questionsList } = storage;
 
-    console.log(this.currentIndex, this.questionsList.length)
     if(this.currentIndex < this.questionsList.length - 1){
       setAnswer({answer, questionIndex: this.currentIndex});
       this._scrollTo()
     } else Actions.results({type: ActionConst.RESET })
-    // if(questionIndex < questionsList.length) this._scrollTo(questionIndex)
+
 
   }
 

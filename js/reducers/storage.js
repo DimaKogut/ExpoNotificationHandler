@@ -3,7 +3,6 @@ import { RECIVE_DATA, UPDATE_SCORE, PASS_AGAIN } from '../actions/actionTypes';
 import update from 'immutability-helper';
 
 const initialState = {
-  // storageLoaded: false,
   questionsList: [],
   quizStarted: false,
   questionIndex: 0,
