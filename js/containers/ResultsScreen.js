@@ -4,15 +4,8 @@ import React, { PureComponent } from 'react';
 import {
   Text,
   View,
-  TextInput,
-  AsyncStorage,
-  Image,
   TouchableOpacity,
-  Dimensions,
   ScrollView,
-  StatusBar,
-  Platform,
-  Alert
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import { connect } from 'react-redux';

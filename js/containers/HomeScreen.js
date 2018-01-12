@@ -4,15 +4,8 @@ import React, { PureComponent } from 'react';
 import {
   Text,
   View,
-  TextInput,
-  AsyncStorage,
-  Image,
   TouchableOpacity,
-  Dimensions,
-  ScrollView,
-  StatusBar,
-  Platform,
-  Alert
+  ActivityIndicator
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import { connect } from 'react-redux';
@@ -27,33 +20,45 @@ class HomeScreen extends PureComponent {
     super(props);
 
     this._fetchTestData = this._fetchTestData.bind(this)
+
+    this.state = {
+      showLoader: false
+    }
   }
 
   componentDidUpdate() {
-
     const { quizStarted } = this.props;
-
-    if(quizStarted) Actions.quiz({ type: Actions.RESET })
+    if(quizStarted) Actions.quiz({ type: ActionConst.RESET })
   }
 
   render() {
+    const { showLoader } = this.state
 
     return (
-      <View style={styles.container}>
+      <View style={{flex: 1}}>
 
-        <Text style={styles.title}>Welcome to the Trivia Challenge!</Text>
-        <Text style={[styles.title, styles.mainMessage]}>You will be presented with 10 True of False questions.</Text>
-        <Text style={styles.title}>Can you score 100%?</Text>
+        { showLoader &&
+          <View style={styles.loaderBox}>
+            <ActivityIndicator
+              size='small'
+            />
+          </View>
+        }
 
-        <TouchableOpacity onPress={this._fetchTestData}
-                          style={styles.beginButton}>
-          <Text style={styles.buttonText}>
-            BEGIN
-          </Text>
-        </TouchableOpacity>
+        <View style={styles.container}>
+          <Text style={styles.title}>Welcome to the Trivia Challenge!</Text>
+          <Text style={[styles.title, styles.mainMessage]}>You will be presented with 10 True of False questions.</Text>
+          <Text style={styles.title}>Can you score 100%?</Text>
+
+          <TouchableOpacity onPress={this._fetchTestData}
+                            style={styles.beginButton}>
+            <Text style={styles.buttonText}>
+              BEGIN
+            </Text>
+          </TouchableOpacity>
+        </View>
 
       </View>
-
     )
   }
 
@@ -62,7 +67,10 @@ class HomeScreen extends PureComponent {
 
     const { storage, fetchData } = this.props;
     if(!!storage.questionsList.length) Actions.quiz({ type: ActionConst.RESET })
-    else fetchData()
+    else {
+      this.setState({showLoader: true});
+      fetchData()
+    }
 
   }
 

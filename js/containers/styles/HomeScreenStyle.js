@@ -1,7 +1,6 @@
 import {
   StyleSheet,
-  Dimensions,
-  Platform
+  Dimensions
 } from 'react-native';
 
 import globalStyles from './GlobalStyles';
@@ -34,6 +33,15 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 17,
     color: 'white'
+  },
+  loaderBox: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    backgroundColor: '#ffffff7c',
+    zIndex: 1
   }
 
 

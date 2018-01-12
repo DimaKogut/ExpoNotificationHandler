@@ -4,21 +4,13 @@ import React, { PureComponent } from 'react';
 import {
   Text,
   View,
-  TextInput,
-  AsyncStorage,
-  Image,
   TouchableOpacity,
-  Dimensions,
-  ScrollView,
-  StatusBar,
-  Platform,
-  Alert
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import Swiper from 'react-native-swiper';
 
-import { setAnswer } from '../actions/index';
+import { setAnswer, finishedQuiz } from '../actions/index';
 import styles from './styles/QuizScreenStyle';
 import appStore from '../store/appStore';
 
@@ -110,13 +102,15 @@ class QuizScreen extends PureComponent {
 
   _setAnswer(answer) {
 
-    const { setAnswer } = this.props;
+    const { setAnswer, finishedQuiz } = this.props;
 
     if(this.currentIndex < this.questionsList.length - 1){
       setAnswer({answer, questionIndex: this.currentIndex});
       this._scrollTo()
-    } else Actions.results({type: ActionConst.RESET })
-
+    } else {
+      finishedQuiz()
+      Actions.results({type: ActionConst.RESET })
+    }
 
   }
 
@@ -133,9 +127,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setAnswer: (data) => {
-      dispatch(setAnswer(data))
-    }
+    setAnswer: (data) => { dispatch(setAnswer(data)) },
+    finishedQuiz: () => { dispatch(finishedQuiz()) },
   }
 }
 

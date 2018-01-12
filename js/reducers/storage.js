@@ -1,22 +1,18 @@
 import { REHYDRATE } from 'redux-persist/constants'
-import { RECIVE_DATA, UPDATE_SCORE, PASS_AGAIN } from '../actions/actionTypes';
+import { RECIVE_DATA, UPDATE_SCORE, PASS_AGAIN, FINISHED_QUIZ } from '../actions/actionTypes';
 import update from 'immutability-helper';
 
 const initialState = {
   questionsList: [],
   quizStarted: false,
+  showResult: false,
   questionIndex: 0,
   score: 0,
+  storageLoaded: false
 }
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case REHYDRATE:
-      return(update(state, {
-        questionIndex: { $set: 0 }
-      })
-    )
-    break;
     case RECIVE_DATA:
       const { results } = action.data;
 
@@ -24,6 +20,7 @@ export default function(state = initialState, action) {
         questionsList: { $set: results },
         quizStarted: { $set: true }
       })
+
     break;
     case UPDATE_SCORE:
       const { score, questionIndex, set_answer } = action;
@@ -45,7 +42,15 @@ export default function(state = initialState, action) {
         questionIndex: { $set: 0 },
         score: { $set: 0 },
         questionsList: { $set: [] },
-        quizStarted: { $set: false }
+        quizStarted: { $set: false },
+        showResult: { $set: false }
+      })
+
+    break;
+    case FINISHED_QUIZ:
+
+      return update(state, {
+        showResult: { $set: true }
       })
 
     break;

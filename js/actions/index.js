@@ -16,12 +16,10 @@ export function fetchData() {
 }
 
 function receiveData(data) {
-
   return {
     type: Actions.RECIVE_DATA,
     data
   }
-
 }
 
 export function setAnswer(data) {
@@ -45,20 +43,22 @@ export function setAnswer(data) {
 }
 
 function updateScore(score, questionIndex, set_answer) {
-
   return {
     type: Actions.UPDATE_SCORE,
     score,
     questionIndex,
     set_answer
   }
-
 }
 
 export function passAgain(data) {
-
   return {
     type: Actions.PASS_AGAIN
   }
+}
 
+export function finishedQuiz() {
+  return {
+    type: Actions.FINISHED_QUIZ
+  }
 }
