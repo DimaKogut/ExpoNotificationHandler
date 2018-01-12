@@ -41,6 +41,7 @@ class HomeScreen extends PureComponent {
           <View style={styles.loaderBox}>
             <ActivityIndicator
               size='small'
+              color='black'
             />
           </View>
         }

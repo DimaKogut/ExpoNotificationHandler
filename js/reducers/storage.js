@@ -13,6 +13,16 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case REHYDRATE: {
+      let storage = state
+      if(action.payload.storage) storage = action.payload.storage
+
+      return {
+        ...storage,
+        storageLoaded: true
+      }
+    }
+    break;
     case RECIVE_DATA:
       const { results } = action.data;
 

@@ -7,8 +7,7 @@ import { AsyncStorage } from 'react-native';
 import rootReducer from '../reducers';
 
 const store = createStore(rootReducer, compose(
-  applyMiddleware(thunk, logger),
-  // applyMiddleware(thunk),
+  applyMiddleware(thunk),
   autoRehydrate()
 ));
 

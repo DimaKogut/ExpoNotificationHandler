@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Dimensions,
-  Platform
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import globalStyles from './GlobalStyles';
 
@@ -40,12 +36,12 @@ const styles = StyleSheet.create({
     fontWeight: '600'
   },
   sighItem: {
-    flex: 0.05,
+    flex: 0.1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   question: {
-    flex: 0.95,
+    flex: 0.9,
     justifyContent: 'center',
     paddingLeft: 10
   },
@@ -55,12 +51,12 @@ const styles = StyleSheet.create({
   },
   sighItemIconRed: {
     color: 'red',
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold'
   },
   sighItemIconGreen: {
     color: '#00b700',
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold'
   }
 
