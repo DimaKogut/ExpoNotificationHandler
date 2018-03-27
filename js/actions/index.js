@@ -62,3 +62,13 @@ export function finishedQuiz() {
     type: Actions.FINISHED_QUIZ
   }
 }
+
+
+export function receivedToken(data) {
+
+  return {
+    type: Actions.RECIVED_TOKEN,
+    data
+  }
+
+}

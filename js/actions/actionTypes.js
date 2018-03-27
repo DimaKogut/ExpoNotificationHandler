@@ -3,3 +3,8 @@ export const RECIVE_DATA = 'RECIVE_DATA';
 export const UPDATE_SCORE = 'UPDATE_SCORE';
 export const PASS_AGAIN = 'PASS_AGAIN';
 export const FINISHED_QUIZ = 'FINISHED_QUIZ';
+
+
+export const RECIVED_TOKEN = 'RECIVED_TOKEN';
+
+
